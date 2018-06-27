@@ -113,7 +113,7 @@ filter_files(Files, Dirs, Filter, IgnoreList) ->
     undefined | ktn_code:tree_node().
 resolve_parse_tree(Config, ".erl", Content) ->
     XXX = ktn_code:parse_tree(elvis_config:include_dirs(Config), Content),
-  ct:pal("XXXXXXXXXX: ~n~p", [XXX]),
+%%  ct:pal("XXXXXXXXXX: ~n~p", [XXX]),
 XXX;
 resolve_parse_tree(_, _, _) ->
     undefined.
