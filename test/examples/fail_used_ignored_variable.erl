@@ -3,7 +3,8 @@
 -export([
          use_ignored_var/2,
          use_ignored_var_in_fun/2,
-         no_used_ignored_vars_here/2, handle_call/3
+         no_used_ignored_vars_here/2, handle_call/3,
+         use_macro_with_underscore/0
         ]).
 
 use_ignored_var(_One, Two) ->
@@ -24,3 +25,8 @@ no_used_ignored_vars_here(One, _Two) ->
     {stop, {unknown_request, Msg}, {unknown_request, Msg}, term()}.
 handle_call(Msg, _From, State) ->
     {stop, {unknown_request, Msg}, {unknown_request, Msg}, State}.
+
+-define(_macroTest(X), {X}).
+
+use_macro_with_underscore() ->
+  ?_macroTest(aaa).
