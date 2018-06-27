@@ -367,6 +367,7 @@ invalid_dynamic_call(Config, Target, RuleConfig) ->
 used_ignored_variable(Config, Target, RuleConfig) ->
     IgnoreModules = maps:get(ignore, RuleConfig, []),
     {Root, _} = elvis_file:parse_tree(Config, Target),
+  ct:pal("Target: ~n~p~n Config: ~n~p~n Root: ~n~p~n", [Target, Config, Root]),
     ResultFun = result_node_line_col_fun(?USED_IGNORED_VAR_MSG),
     ModuleName = elvis_code:module_name(Root),
 
